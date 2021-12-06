@@ -1,3 +1,12 @@
 img {
-    width: 30%;
+    width: 35%;
+}
+
+.thumbnail:hover {
+    position:relative;
+    top:-10%;
+    width: 100%;
+    height:auto;
+    display:block;
+    z-index:999;
 }

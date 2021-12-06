@@ -7,7 +7,7 @@ import './Home.css'
 function Home() {
     const [num, setNum] = useState([]);
     var [currWork, setCurrWork] =useState()
-    const [yourQuery, setYourQuery] = useState("William Merritt Chase")
+    const [yourQuery, setYourQuery] = useState("Auguste Renoir")
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
@@ -51,16 +51,16 @@ function Home() {
                 console.log("inside timeout function, emergArt value should be after this")
                 //console.log(emergArt)
                 if (typeof artChecker === 'undefined'){
-                        console.log("UNDEFINED!! SET TO EMERGENCY ART")
-                        setCurrWork(emergArt)
-                        console.log("emergency avoided")
+                    console.log("UNDEFINED!! SET TO EMERGENCY ART")
+                    setCurrWork(emergArt)
+                    console.log("emergency avoided")
                     }
-                    else{
-                        console.log("DEFINED, WE OK")
-                        setCurrWork(artChecker)
+                else{
+                    console.log("DEFINED, WE OK")
+                    setCurrWork(artChecker)
                     }
 
-            }, 1000);
+            }, 1000);           //change this value after loading site and save for site to activate properly.
             
             setLoading(false);
             console.log("after setLoading to false");
@@ -97,7 +97,7 @@ function Home() {
         <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Load</button>
         <div className = "works">
             <div className = "work-display1">
-                <Painting num = {currWork.objectIDs[num[0]]}/>
+                <Painting num = {currWork.objectIDs[num[0]]}/>          {/*currWork still is able to be passed as null, NEEDS TO BE FIXED*/}
             </div>
             <div className = "work-display2">
                 <Painting num = {currWork.objectIDs[num[1]]}/>

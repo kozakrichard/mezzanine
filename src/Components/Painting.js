@@ -25,11 +25,11 @@ function Painting(props) {
                            
             </div>
             <div className = "painting-data">
-                <p>You are looking at {painting.title} by {painting.artistDisplayName}</p>
+                <p>{painting.title} by {painting.artistDisplayName}</p>
                 {console.log(props.num)}
                 {console.log(painting)}
-                <img className ="art-now" src = {painting.primaryImage} alt = {pozzi}/>
-                <p>Made in the year(s) {painting.objectDate}</p>
+                <img className ="art-now" src = {painting.primaryImage} class="thumbnail" alt = {pozzi}/>
+                <p>Made {painting.objectDate}</p>
             </div>
             
         </div>
