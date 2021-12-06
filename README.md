@@ -1,3 +1,10 @@
+# Mezzanine
+## Discover, learn about, and be inspired by fine art from the best museum in the world, the Met.
+<p> The goal of this project is to streamline the ability to see the work that the Met has on display, and in its private collection. </p>
+<p> Uses the Metropolitan Museum of Art Collection API https://metmuseum.github.io/ (thank you for this tool). </p>
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
