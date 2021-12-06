@@ -1,0 +1,4 @@
+.works{
+    display:flex; 
+    flex-direction:row;
+}
