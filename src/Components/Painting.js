@@ -9,7 +9,6 @@ function Painting(props) {
     const [data] = ArtGetter("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num)
     
 
-
     useEffect(() => {
         // GET request using axios inside useEffect React hook
         axios.get('https://collectionapi.metmuseum.org/public/collection/v1/objects/459110')
