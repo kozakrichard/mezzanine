@@ -47,7 +47,7 @@ function Home() {
         //setLoading(false);
         
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, [emergArt]);
+    }, []);
 
 
 
