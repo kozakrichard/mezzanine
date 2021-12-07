@@ -24,11 +24,13 @@ function Painting(props) {
                            
             </div>
             <div className = "painting-data">
-                <p>{painting.title} by {painting.artistDisplayName}</p>
+                <p style = {{fontStyle: "italic"}}>{painting.title}</p>
+                <p>{painting.artistDisplayName}</p>
                 {console.log(props.num)}
                 {console.log(painting)}
                 <img className ="art-now" src = {painting.primaryImage} class="thumbnail" alt = {pozzi}/>
                 <p>Made {painting.objectDate}</p>
+                <a href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work at the Met</a>
             </div>
             
         </div>
