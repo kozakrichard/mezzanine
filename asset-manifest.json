@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/kozakrichard.github.io/mezzanine/static/css/main.680668ec.chunk.css",
-    "main.js": "/kozakrichard.github.io/mezzanine/static/js/main.7e0f951b.chunk.js",
-    "main.js.map": "/kozakrichard.github.io/mezzanine/static/js/main.7e0f951b.chunk.js.map",
-    "runtime-main.js": "/kozakrichard.github.io/mezzanine/static/js/runtime-main.dce7c0ca.js",
-    "runtime-main.js.map": "/kozakrichard.github.io/mezzanine/static/js/runtime-main.dce7c0ca.js.map",
-    "static/js/2.1be37d8c.chunk.js": "/kozakrichard.github.io/mezzanine/static/js/2.1be37d8c.chunk.js",
-    "static/js/2.1be37d8c.chunk.js.map": "/kozakrichard.github.io/mezzanine/static/js/2.1be37d8c.chunk.js.map",
-    "static/js/3.6974f12f.chunk.js": "/kozakrichard.github.io/mezzanine/static/js/3.6974f12f.chunk.js",
-    "static/js/3.6974f12f.chunk.js.map": "/kozakrichard.github.io/mezzanine/static/js/3.6974f12f.chunk.js.map",
-    "index.html": "/kozakrichard.github.io/mezzanine/index.html",
-    "static/css/main.680668ec.chunk.css.map": "/kozakrichard.github.io/mezzanine/static/css/main.680668ec.chunk.css.map",
-    "static/js/2.1be37d8c.chunk.js.LICENSE.txt": "/kozakrichard.github.io/mezzanine/static/js/2.1be37d8c.chunk.js.LICENSE.txt",
-    "static/media/dr.pozzi_sargent.e9146436.jpg": "/kozakrichard.github.io/mezzanine/static/media/dr.pozzi_sargent.e9146436.jpg"
+    "main.css": "/mezzanine/static/css/main.680668ec.chunk.css",
+    "main.js": "/mezzanine/static/js/main.7e0f951b.chunk.js",
+    "main.js.map": "/mezzanine/static/js/main.7e0f951b.chunk.js.map",
+    "runtime-main.js": "/mezzanine/static/js/runtime-main.553077eb.js",
+    "runtime-main.js.map": "/mezzanine/static/js/runtime-main.553077eb.js.map",
+    "static/js/2.1be37d8c.chunk.js": "/mezzanine/static/js/2.1be37d8c.chunk.js",
+    "static/js/2.1be37d8c.chunk.js.map": "/mezzanine/static/js/2.1be37d8c.chunk.js.map",
+    "static/js/3.6974f12f.chunk.js": "/mezzanine/static/js/3.6974f12f.chunk.js",
+    "static/js/3.6974f12f.chunk.js.map": "/mezzanine/static/js/3.6974f12f.chunk.js.map",
+    "index.html": "/mezzanine/index.html",
+    "static/css/main.680668ec.chunk.css.map": "/mezzanine/static/css/main.680668ec.chunk.css.map",
+    "static/js/2.1be37d8c.chunk.js.LICENSE.txt": "/mezzanine/static/js/2.1be37d8c.chunk.js.LICENSE.txt",
+    "static/media/dr.pozzi_sargent.e9146436.jpg": "/mezzanine/static/media/dr.pozzi_sargent.e9146436.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.dce7c0ca.js",
+    "static/js/runtime-main.553077eb.js",
     "static/js/2.1be37d8c.chunk.js",
     "static/css/main.680668ec.chunk.css",
     "static/js/main.7e0f951b.chunk.js"
