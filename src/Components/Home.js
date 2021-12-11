@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import Painting from "./Painting.js";
 import axios from 'axios';
 import './Home.css'
+import { FaSearch } from 'react-icons/fa';
 
 
 function Home() {
     const [num, setNum] = useState([]);
     var [currWork, setCurrWork] =useState()
-    const [yourQuery, setYourQuery] = useState("")
+    const [yourQuery, setYourQuery] = useState("Auguste Renoir")
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
@@ -117,15 +118,15 @@ function Home() {
             {console.log(currWork)}
         </div>
     }
-    //    }, [currWork])
 
     return (
 
         <div>
             <h1>Mezzanine</h1>
+            
             <form>
                 <label>
-                    Your Filter:
+                    <FaSearch/>
                     <input
                         type="text"
                         value={yourQuery}
@@ -133,7 +134,8 @@ function Home() {
                     />
                 </label>
             </form>
-            <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Load</button>
+            <div className = "results">{currWork.total} Results</div>
+            <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             <div className = "works">
                 <div className = "work-display1">
                     <Painting num = {currWork.objectIDs[num[0]]}/>          {/*currWork being passed as null while searching a specific key*/}

@@ -20,7 +20,7 @@ function Painting(props) {
     return (
         <div className = "artwork-display">
             <div className = "get-btn">
-                <button onClick = {() => setPainting(data)}>Get</button>
+                <button onClick = {() => setPainting(data)}>Show</button>
                            
             </div>
             <div className = "painting-data">
@@ -33,7 +33,7 @@ function Painting(props) {
                 </div>
                 <p>{painting.medium}</p>
                 <p>Made {painting.objectDate}</p>
-                <a href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work at the Met</a>
+                <a href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work on the Met's website</a>
             </div>
             
         </div>
