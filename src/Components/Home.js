@@ -3,7 +3,7 @@ import Painting from "./Painting.js";
 import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
-
+import loading from "../artwork/loading.gif" ;
 
 function Home() {
     const [num, setNum] = useState([]);
@@ -12,6 +12,7 @@ function Home() {
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
+    const [searching, setSearching] = useState(false);
 
     const randomizer = (max) => {
         const a = Math.floor(Math.random() * max);
@@ -36,6 +37,7 @@ function Home() {
             console.log("fetching inside emerg, but before await")    
             let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste%20Renoir')
             //.then(response => setEmergArt(response.data))
+
             console.log("response coming after")
             console.log(response.data)
             console.log("setting emergency art to response from above")
@@ -73,6 +75,9 @@ function Home() {
 
 
     useEffect(() => {
+        
+        setSearching(true);
+        console.log("searching is " + searching)
         // GET request using axios inside useEffect React hook
         async function gettingData () {
             //console.log("getting data here");
@@ -104,7 +109,8 @@ function Home() {
         }
         console.log("getting data after")
         gettingData();
-        
+        console.log("searching is " + searching)
+        setSearching(false);
       
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     // dependency array has some variables, this useEffect will run every time one of these variables is updated
@@ -123,7 +129,6 @@ function Home() {
 
         <div>
             <h1>Mezzanine</h1>
-            
             <form>
                 <label>
                     <FaSearch/>
@@ -138,7 +143,7 @@ function Home() {
             <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             <div className = "works">
                 <div className = "work-display1">
-                    <Painting num = {currWork.objectIDs[num[0]]}/>          {/*currWork being passed as null while searching a specific key*/}
+                    <Painting num = {currWork.objectIDs[num[0]]}/>
                 </div>
                 <div className = "work-display2">
                     <Painting num = {currWork.objectIDs[num[1]]}/>
