@@ -7,14 +7,19 @@ import './Home.css'
 function Home() {
     const [num, setNum] = useState([]);
     var [currWork, setCurrWork] =useState()
-    const [yourQuery, setYourQuery] = useState("Auguste Renoir")
+    const [yourQuery, setYourQuery] = useState("")
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
 
     const randomizer = (max) => {
         const a = Math.floor(Math.random() * max);
+        console.log("first random num is: ")
+        console.log(a)
         const b = Math.floor(Math.random() * max);
+        console.log("second random num is: ")
+        console.log(b)
+
         let numArr = [a,b];
         return numArr; 
     //console.log(currWork.total + " total images found");
@@ -49,41 +54,49 @@ function Home() {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
-
+    
+    function makeGetRequest(path) {
+        return new Promise(function (resolve, reject) {
+            axios.get(path).then(
+                (response) => {
+                    var result = response;
+                    console.log('Processing Request');
+                    resolve(result);
+                },
+                    (error) => {
+                    reject(error);
+                }
+            );
+        });
+    }
 
 
     useEffect(() => {
         // GET request using axios inside useEffect React hook
         async function gettingData () {
             //console.log("getting data here");
-            let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=' + yourQuery)
-            setArtChecker(response.data)       /////////////////////////problem is here, null array being passed to currWork
+            let response = await makeGetRequest('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=' + yourQuery)
+            console.log("yourQuery is:")
+            console.log(yourQuery);
+            console.log("artChecker is (before setArtChecker(response.data)): ")
+            console.log(artChecker)
+            setArtChecker(response.data)  
+            console.log("response.data is :")
+            console.log(response.data)
             console.log("artChecker is:")
             console.log(artChecker)
-            if (typeof artChecker === 'undefined')
+            console.log("response.data.total is: ")
+            console.log(response.data.total)
+
+            if (typeof artChecker === 'undefined' || response.data.total === 0)     
             {
                 setCurrWork(emergArt);
+                console.log("emergency here, changed currWork to emergency Art")
+                console.log(currWork)
             }
             else{
-                setCurrWork(artChecker);
+                setCurrWork(response.data);                     //AM I AN IDIOT OR A BEAST
             }
-            /*setTimeout(function(){
-                console.log("inside timeout function, emergArt value should be after this")
-                console.log(emergArt)
-                if (typeof artChecker === 'undefined'){
-                    console.log("UNDEFINED!! SET TO EMERGENCY ART")
-                    setCurrWork(emergArt)
-                    console.log("emergency avoided")
-                    console.log(emergArt)
-                    console.log(currWork)
-                    }
-                else{
-                    console.log("DEFINED, WE OK")
-                    setCurrWork(artChecker)
-                    }
-
-            }, 100);           //change this value after loading site and save for site to activate properly.
-        */
             setLoading(false);
             console.log("after setLoading to false");
             
@@ -93,7 +106,8 @@ function Home() {
         
       
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, [yourQuery,num,emergArt]);
+    // dependency array has some variables, this useEffect will run every time one of these variables is updated
+    }, [yourQuery, emergArt]);
 
     //    useEffect(() => {
     if (isLoading || typeof currWork === 'undefined') {
@@ -109,7 +123,7 @@ function Home() {
 
         <div>
             <h1>Mezzanine</h1>
-            <form onSubmit={setYourQuery} >
+            <form>
                 <label>
                     Your Filter:
                     <input
@@ -122,7 +136,7 @@ function Home() {
             <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Load</button>
             <div className = "works">
                 <div className = "work-display1">
-                    <Painting num = {currWork.objectIDs[num[0]]}/>          {/*currWork still is able to be passed as null, NEEDS TO BE FIXED*/}
+                    <Painting num = {currWork.objectIDs[num[0]]}/>          {/*currWork being passed as null while searching a specific key*/}
                 </div>
                 <div className = "work-display2">
                     <Painting num = {currWork.objectIDs[num[1]]}/>

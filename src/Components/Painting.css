@@ -6,8 +6,14 @@ img {
 .thumbnail:hover {
     position:relative;
     top:-10%;
-    width: 100%;
+    width: 110%;
     height:auto;
     display:block;
     z-index:999;
+}
+
+.painting-data{
+    height:100%;
+    width:100%;
+    background-size: cover;
 }
