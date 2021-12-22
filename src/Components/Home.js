@@ -26,7 +26,15 @@ function Home() {
         const f = Math.floor(Math.random() * max);
         const g = Math.floor(Math.random() * max);
         const h = Math.floor(Math.random() * max);
-        let numArr = [a,b,c,d,e,f,g,h];
+        const i = Math.floor(Math.random() * max);
+        const j = Math.floor(Math.random() * max);
+        const k = Math.floor(Math.random() * max);
+        const l = Math.floor(Math.random() * max);
+        const m = Math.floor(Math.random() * max);
+        const n = Math.floor(Math.random() * max);
+        const o = Math.floor(Math.random() * max);
+        const p = Math.floor(Math.random() * max);
+        let numArr = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p];
         setLoadingSymbol(false);
         showLoadingSign();
         return numArr; 
@@ -165,35 +173,64 @@ function Home() {
             
                 <button className = "shuffler" onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             </div>
-            <div className = "works-row">
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[0]]}/>
+            <div className = "works-total">
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[0]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[1]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[2]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[3]]}/>
+                    </div>
                 </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[1]]}/>
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[4]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[5]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[6]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[7]]}/>
+                    </div>
+                </div>    
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[8]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[9]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[10]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[11]]}/>
+                    </div>
                 </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[2]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[3]]}/>
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[12]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[13]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[14]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[15]]}/>
+                    </div>
                 </div>
             </div>
-            <div className = "works-row">
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[4]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[5]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[6]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[7]]}/>
-                </div>
-            </div>
-            
             {/*console.log(num + " value on loading Painting.js")*/}
         </div>   
     );

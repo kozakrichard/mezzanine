@@ -33,13 +33,19 @@ h1{
     display: inline-block;
 }
 
-.works-row{
+.works-total{
     display: flex; 
+    flex-wrap: wrap;
 }
 
-.work-col{
-    flex: 33.33%;
-    padding: 1%;
+.works-col{
+    flex: 25%;
+    max-width: 24.5%;
+    padding: 0.2%;
+}
+
+.work-img{
+    vertical-align: middle;
 }
 
 .loading-icon{
