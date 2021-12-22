@@ -13,6 +13,9 @@ function Home() {
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
     const [searching, setSearching] = useState(false);
+    const [loadingSymbol, setLoadingSymbol] = useState(false);
+    const [showLoadingSymbol, setShowLoadingSymbol] = useState("never shuffled yet");
+
 
     const randomizer = (max) => {
         const a = Math.floor(Math.random() * max);
@@ -23,6 +26,8 @@ function Home() {
         console.log(b)
 
         let numArr = [a,b];
+        setLoadingSymbol(false);
+        showLoadingSign();
         return numArr; 
     //console.log(currWork.total + " total images found");
     }
@@ -111,6 +116,7 @@ function Home() {
         gettingData();
         console.log("searching is " + searching)
         setSearching(false);
+        setLoadingSymbol(true);
       
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     // dependency array has some variables, this useEffect will run every time one of these variables is updated
@@ -123,6 +129,15 @@ function Home() {
             {console.log("loading now, currWork is")}
             {console.log(currWork)}
         </div>
+    }
+
+    function showLoadingSign() {
+        if (loadingSymbol === true){
+            setShowLoadingSymbol("shuffling for you");
+        }
+        else {
+            setShowLoadingSymbol("not shuffling");
+        }
     }
 
     return (
@@ -139,6 +154,10 @@ function Home() {
                     />
                 </label>
             </form>
+            <div>
+                <p>{showLoadingSymbol}</p>
+                {/*<img className = "loading-icon" src = {showLoadingSymbol} alt = {loading}/>*/}
+            </div>
             <div className = "results">{currWork.total} Results</div>
             <button onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             <div className = "works">
@@ -149,6 +168,7 @@ function Home() {
                     <Painting num = {currWork.objectIDs[num[1]]}/>
                 </div>
             </div>
+            
             {/*console.log(num + " value on loading Painting.js")*/}
         </div>   
     );

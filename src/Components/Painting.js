@@ -20,7 +20,7 @@ function Painting(props) {
     return (
         <div className = "artwork-display">
             <div className = "get-btn">
-                <button onClick = {() => setPainting(data)}>Show</button>
+                <button onClick = {() => setPainting(data)}>Show Here</button>
                            
             </div>
             <div className = "painting-data">
