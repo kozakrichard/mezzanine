@@ -1,6 +1,45 @@
-.works{
-    display:flex; 
-    flex-direction:row;
+header{
+    position: relative;
+}
+
+h1{
+    display: inline-block;
+    z-index: 2;
+    margin-top: 0.5%;
+    margin-right: 80%;
+    text-align: left;
+}
+
+.search{
+    position: absolute;
+    display: inline-block;
+    z-index: 3;
+    margin-top: -3.5%;
+    margin-left: -15%;
+}
+
+.results{
+    position: absolute;
+    display: inline-block;
+    margin-top: -3.5%;
+    margin-left: 10%;
+    z-index: 2;
+}
+
+.shuffler{
+    position: absolute;
+    margin-top: -3.25%;
+    z-index: 2;
+    display: inline-block;
+}
+
+.works-row{
+    display: flex; 
+}
+
+.work-col{
+    flex: 33.33%;
+    padding: 1%;
 }
 
 .loading-icon{
@@ -8,6 +47,7 @@
     height:2%;
 }
 
+/*
 .work-display1{
     margin-left:10%;
     margin-right:5%;
@@ -17,3 +57,4 @@
     margin-right:10%;
     margin-left:5%;
 }
+*/
