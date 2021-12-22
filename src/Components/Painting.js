@@ -19,21 +19,21 @@ function Painting(props) {
 
     return (
         <div className = "artwork-display">
-            <div className = "get-btn">
-                <button onClick = {() => setPainting(data)}>Get</button>
+            {/*<div className = "get-btn">
+                <button onClick = {() => setPainting(data)}>Show Here</button>
                            
-            </div>
+            </div>*/}
             <div className = "painting-data">
-                <p style = {{fontStyle: "italic"}}>{painting.title}</p>
+                {/*<p style = {{fontStyle: "italic"}}>{painting.title}</p>
                 <p>{painting.artistDisplayName}</p>
-                {/*{console.log(props.num)}
+                {console.log(props.num)}
                 {console.log(painting)}*/}
                 <div>
-                    <img className ="art-now" src = {painting.primaryImage} class="thumbnail" alt = {"Loading"}/>
+                    <img className ="art-now" src = {painting.primaryImage} onClick = {() => setPainting(data)} class="thumbnail" alt = {"Click Shuffle"}/>
                 </div>
-                <p>{painting.medium}</p>
+                {/*<p>{painting.medium}</p>
                 <p>Made {painting.objectDate}</p>
-                <a href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work at the Met</a>
+                <a href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work on the Met's website</a>*/}
             </div>
             
         </div>
