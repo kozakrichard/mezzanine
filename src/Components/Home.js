@@ -20,7 +20,7 @@ function Home() {
 
     const randomizer = (max) => {
         let numArr = [];
-        for (let i = 0; i < 20; i++)
+        for (let i = 0; i < 32; i++)
         {
             let a = Math.floor(Math.random() * max);
             numArr.push(a);
@@ -173,6 +173,15 @@ function Home() {
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[16]]}/>
                     </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[20]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[21]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[22]]}/>
+                    </div>
                 </div>
                 <div className = "works-col">
                     <div className = "work-img">
@@ -189,6 +198,15 @@ function Home() {
                     </div>
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[17]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[23]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[24]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[25]]}/>
                     </div>
                 </div>    
                 <div className = "works-col">
@@ -207,6 +225,15 @@ function Home() {
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[18]]}/>
                     </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[26]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[27]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[28]]}/>
+                    </div>
                 </div>
                 <div className = "works-col">
                     <div className = "work-img">
@@ -223,6 +250,15 @@ function Home() {
                     </div>
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[19]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[29]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[30]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[31]]}/>
                     </div>
                 </div>
             </div>

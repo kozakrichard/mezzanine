@@ -36,7 +36,7 @@ function Painting(props) {
                         onClick = {() => setPainting(data) }
                         class="thumbnail" 
                         alt = "painting"
-                        title = {painting.title}
+                        title = "Click to Change"
                     />
                 </div>
                 {/*<p>{painting.medium}</p>
