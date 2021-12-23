@@ -2,7 +2,9 @@ import React, {useState, useEffect, useRef} from 'react';
 import './Painting.css'
 import ArtGetter from "./ArtGetter.js"
 import pozzi from "../artwork/dr.pozzi_sargent.jpg"
+import loading from "../artwork/loading.gif" ;
 import axios from 'axios';
+
 
 function Painting(props) {
     var [painting, setPainting] = useState(pozzi);
@@ -17,6 +19,10 @@ function Painting(props) {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
+    const addDefaultSrc = (e) => {
+        e.target.src = pozzi;
+    }
+
     return (
         <div className = "artwork-display">
             {/*<div className = "get-btn">
@@ -29,7 +35,13 @@ function Painting(props) {
                 {console.log(props.num)}
                 {console.log(painting)}*/}
                 <div>
-                    <img className ="art-now" src = {painting.primaryImage} onClick = {() => setPainting(data)} class="thumbnail" alt = {"Click Shuffle"}/>
+                    <img className ="art-now" 
+                        src = {painting.primaryImage} 
+                        onClick = {() => setPainting(data)} 
+                        onError={addDefaultSrc}
+                        class="thumbnail" 
+                        alt = {loading} title = "Loading"
+                    />
                 </div>
                 {/*<p>{painting.medium}</p>
                 <p>Made {painting.objectDate}</p>

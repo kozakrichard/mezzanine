@@ -18,25 +18,13 @@ function Home() {
 
 
     const randomizer = (max) => {
-        const a = Math.floor(Math.random() * max);
-        const b = Math.floor(Math.random() * max);
-        const c = Math.floor(Math.random() * max);
-        const d = Math.floor(Math.random() * max);
-        const e = Math.floor(Math.random() * max);
-        const f = Math.floor(Math.random() * max);
-        const g = Math.floor(Math.random() * max);
-        const h = Math.floor(Math.random() * max);
-        const i = Math.floor(Math.random() * max);
-        const j = Math.floor(Math.random() * max);
-        const k = Math.floor(Math.random() * max);
-        const l = Math.floor(Math.random() * max);
-        const m = Math.floor(Math.random() * max);
-        const n = Math.floor(Math.random() * max);
-        const o = Math.floor(Math.random() * max);
-        const p = Math.floor(Math.random() * max);
-        let numArr = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p];
-        setLoadingSymbol(false);
-        showLoadingSign();
+        let numArr = [];
+        for (let i = 0; i < 16; i++)
+        {
+            let a = Math.floor(Math.random() * max);
+            numArr.push(a);
+        }
+        console.log(numArr);
         return numArr; 
     //console.log(currWork.total + " total images found");
     }
@@ -50,18 +38,12 @@ function Home() {
         async function fetchEmerg () {
             console.log("fetching inside emerg, but before await")    
             let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste%20Renoir')
-            //.then(response => setEmergArt(response.data))
 
             console.log("response coming after")
             console.log(response.data)
             console.log("setting emergency art to response from above")
             setEmergArt(response.data)
             console.log("emergArt is:")
-            console.log(emergArt)
-            //console.log("setting current work to emergency art")
-            //setCurrWork(emergArt)
-            //console.log("fetching inside call emergArt after this")
-            //console.log(isLoading)
         }
         console.log("fetching emerg before call");
         fetchEmerg();
@@ -154,8 +136,8 @@ function Home() {
         <div>
             <div className= "header">
                 <h1>Mezzanine</h1>
-                <form>
-                    <label className = "search">
+                <form className = "search">
+                    <label >
                         <FaSearch/>
                         <input
                             type="text"
