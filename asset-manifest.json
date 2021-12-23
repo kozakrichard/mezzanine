@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/mezzanine/static/css/main.d836f57f.chunk.css",
-    "main.js": "/mezzanine/static/js/main.127cd1d4.chunk.js",
-    "main.js.map": "/mezzanine/static/js/main.127cd1d4.chunk.js.map",
-    "runtime-main.js": "/mezzanine/static/js/runtime-main.553077eb.js",
-    "runtime-main.js.map": "/mezzanine/static/js/runtime-main.553077eb.js.map",
-    "static/js/2.1be37d8c.chunk.js": "/mezzanine/static/js/2.1be37d8c.chunk.js",
-    "static/js/2.1be37d8c.chunk.js.map": "/mezzanine/static/js/2.1be37d8c.chunk.js.map",
-    "static/js/3.6974f12f.chunk.js": "/mezzanine/static/js/3.6974f12f.chunk.js",
-    "static/js/3.6974f12f.chunk.js.map": "/mezzanine/static/js/3.6974f12f.chunk.js.map",
+    "main.css": "/mezzanine/static/css/main.2f07797b.chunk.css",
+    "main.js": "/mezzanine/static/js/main.67203eed.chunk.js",
+    "main.js.map": "/mezzanine/static/js/main.67203eed.chunk.js.map",
+    "runtime-main.js": "/mezzanine/static/js/runtime-main.2a220afc.js",
+    "runtime-main.js.map": "/mezzanine/static/js/runtime-main.2a220afc.js.map",
+    "static/js/2.699eb2dc.chunk.js": "/mezzanine/static/js/2.699eb2dc.chunk.js",
+    "static/js/2.699eb2dc.chunk.js.map": "/mezzanine/static/js/2.699eb2dc.chunk.js.map",
+    "static/js/3.e2d79f74.chunk.js": "/mezzanine/static/js/3.e2d79f74.chunk.js",
+    "static/js/3.e2d79f74.chunk.js.map": "/mezzanine/static/js/3.e2d79f74.chunk.js.map",
     "index.html": "/mezzanine/index.html",
-    "static/css/main.d836f57f.chunk.css.map": "/mezzanine/static/css/main.d836f57f.chunk.css.map",
-    "static/js/2.1be37d8c.chunk.js.LICENSE.txt": "/mezzanine/static/js/2.1be37d8c.chunk.js.LICENSE.txt",
-    "static/media/dr.pozzi_sargent.e9146436.jpg": "/mezzanine/static/media/dr.pozzi_sargent.e9146436.jpg"
+    "static/css/main.2f07797b.chunk.css.map": "/mezzanine/static/css/main.2f07797b.chunk.css.map",
+    "static/js/2.699eb2dc.chunk.js.LICENSE.txt": "/mezzanine/static/js/2.699eb2dc.chunk.js.LICENSE.txt",
+    "static/media/clickAgain.4e59b3e2.JPG": "/mezzanine/static/media/clickAgain.4e59b3e2.JPG",
+    "static/media/dr.pozzi_sargent.e9146436.jpg": "/mezzanine/static/media/dr.pozzi_sargent.e9146436.jpg",
+    "static/media/loading.e94752fe.gif": "/mezzanine/static/media/loading.e94752fe.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.553077eb.js",
-    "static/js/2.1be37d8c.chunk.js",
-    "static/css/main.d836f57f.chunk.css",
-    "static/js/main.127cd1d4.chunk.js"
+    "static/js/runtime-main.2a220afc.js",
+    "static/js/2.699eb2dc.chunk.js",
+    "static/css/main.2f07797b.chunk.css",
+    "static/js/main.67203eed.chunk.js"
   ]
 }
