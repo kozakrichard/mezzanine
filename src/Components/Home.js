@@ -3,6 +3,7 @@ import Painting from "./Painting.js";
 import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
+import { GrCircleInformation } from 'react-icons/gr';
 import loading from "../artwork/loading.gif" ;
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
 
     const randomizer = (max) => {
         let numArr = [];
-        for (let i = 0; i < 16; i++)
+        for (let i = 0; i < 20; i++)
         {
             let a = Math.floor(Math.random() * max);
             numArr.push(a);
@@ -169,6 +170,9 @@ function Home() {
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[3]]}/>
                     </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[16]]}/>
+                    </div>
                 </div>
                 <div className = "works-col">
                     <div className = "work-img">
@@ -182,6 +186,9 @@ function Home() {
                     </div>
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[7]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[17]]}/>
                     </div>
                 </div>    
                 <div className = "works-col">
@@ -197,6 +204,9 @@ function Home() {
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[11]]}/>
                     </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[18]]}/>
+                    </div>
                 </div>
                 <div className = "works-col">
                     <div className = "work-img">
@@ -210,6 +220,9 @@ function Home() {
                     </div>
                     <div className = "work-img">
                         <Painting num = {currWork.objectIDs[num[15]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[19]]}/>
                     </div>
                 </div>
             </div>
