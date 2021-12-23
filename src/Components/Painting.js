@@ -2,7 +2,9 @@ import React, {useState, useEffect, useRef} from 'react';
 import './Painting.css'
 import ArtGetter from "./ArtGetter.js"
 import pozzi from "../artwork/dr.pozzi_sargent.jpg"
+import clickAgain from "../artwork/clickAgain.JPG"
 import axios from 'axios';
+
 
 function Painting(props) {
     var [painting, setPainting] = useState(pozzi);
@@ -29,7 +31,13 @@ function Painting(props) {
                 {console.log(props.num)}
                 {console.log(painting)}*/}
                 <div>
-                    <img className ="art-now" src = {painting.primaryImage} onClick = {() => setPainting(data)} class="thumbnail" alt = {"Click Shuffle"}/>
+                    <img className ="art-now" 
+                        src = {painting.primaryImage || clickAgain} 
+                        onClick = {() => setPainting(data) }
+                        class="thumbnail" 
+                        alt = "painting"
+                        title = "Click to Change"
+                    />
                 </div>
                 {/*<p>{painting.medium}</p>
                 <p>Made {painting.objectDate}</p>

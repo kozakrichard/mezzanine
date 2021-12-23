@@ -1,15 +1,16 @@
-
 img {
     width: 100%;
     object-fit: cover;
 }
 
-.thumbnail:hover {
-    position:relative;
-    height:auto;
-    display:block;
-    z-index:1;
+/*
+.thumbnail:hover{
+    position: absolute;
+    display: block;
+    width: 40%;
+    z-index:999;
 }
+*/
 
 .painting-data{
     height:100%;

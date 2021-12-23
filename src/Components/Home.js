@@ -3,6 +3,7 @@ import Painting from "./Painting.js";
 import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
+import { GrCircleInformation } from 'react-icons/gr';
 import loading from "../artwork/loading.gif" ;
 
 function Home() {
@@ -18,17 +19,13 @@ function Home() {
 
 
     const randomizer = (max) => {
-        const a = Math.floor(Math.random() * max);
-        const b = Math.floor(Math.random() * max);
-        const c = Math.floor(Math.random() * max);
-        const d = Math.floor(Math.random() * max);
-        const e = Math.floor(Math.random() * max);
-        const f = Math.floor(Math.random() * max);
-        const g = Math.floor(Math.random() * max);
-        const h = Math.floor(Math.random() * max);
-        let numArr = [a,b,c,d,e,f,g,h];
-        setLoadingSymbol(false);
-        showLoadingSign();
+        let numArr = [];
+        for (let i = 0; i < 32; i++)
+        {
+            let a = Math.floor(Math.random() * max);
+            numArr.push(a);
+        }
+        console.log(numArr);
         return numArr; 
     //console.log(currWork.total + " total images found");
     }
@@ -42,18 +39,12 @@ function Home() {
         async function fetchEmerg () {
             console.log("fetching inside emerg, but before await")    
             let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste%20Renoir')
-            //.then(response => setEmergArt(response.data))
 
             console.log("response coming after")
             console.log(response.data)
             console.log("setting emergency art to response from above")
             setEmergArt(response.data)
             console.log("emergArt is:")
-            console.log(emergArt)
-            //console.log("setting current work to emergency art")
-            //setCurrWork(emergArt)
-            //console.log("fetching inside call emergArt after this")
-            //console.log(isLoading)
         }
         console.log("fetching emerg before call");
         fetchEmerg();
@@ -146,8 +137,8 @@ function Home() {
         <div>
             <div className= "header">
                 <h1>Mezzanine</h1>
-                <form>
-                    <label className = "search">
+                <form className = "search">
+                    <label >
                         <FaSearch/>
                         <input
                             type="text"
@@ -165,35 +156,112 @@ function Home() {
             
                 <button className = "shuffler" onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             </div>
-            <div className = "works-row">
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[0]]}/>
+            <div className = "works-total">
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[0]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[1]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[2]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[3]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[16]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[20]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[21]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[22]]}/>
+                    </div>
                 </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[1]]}/>
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[4]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[5]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[6]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[7]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[17]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[23]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[24]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[25]]}/>
+                    </div>
+                </div>    
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[8]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[9]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[10]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[11]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[18]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[26]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[27]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[28]]}/>
+                    </div>
                 </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[2]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[3]]}/>
+                <div className = "works-col">
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[12]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[13]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[14]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[15]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[19]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[29]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[30]]}/>
+                    </div>
+                    <div className = "work-img">
+                        <Painting num = {currWork.objectIDs[num[31]]}/>
+                    </div>
                 </div>
             </div>
-            <div className = "works-row">
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[4]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[5]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[6]]}/>
-                </div>
-                <div className = "work-col">
-                    <Painting num = {currWork.objectIDs[num[7]]}/>
-                </div>
-            </div>
-            
             {/*console.log(num + " value on loading Painting.js")*/}
         </div>   
     );
