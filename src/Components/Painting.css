@@ -20,8 +20,8 @@ img {
     margin: auto;
     margin-left: 15%;
     display: block;
-    width: 50%;
-    max-width: 530px;
+    width: 55%;
+    max-width: 525px;
 
 }
 
@@ -44,7 +44,7 @@ img {
 .caption {
     color: white;
     margin-left: 60%;
-    margin-top: -40%;
+    margin-top: -25%;
     font-size: 16pt;
     text-align: left;
 }
