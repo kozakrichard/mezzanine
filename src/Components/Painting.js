@@ -22,7 +22,7 @@ function Painting(props) {
     return (
         <div className = "artwork-display">
             <div className = "get-btn">
-                <button onClick = {() => setFullScreen("block")}>Expand</button>           
+                <button className = "expander" onClick = {() => setFullScreen("block")}>Expand</button>           
             </div>
             <div className = "painting-data">
                 {/*<p style = {{fontStyle: "italic"}}>{painting.title}</p>
@@ -39,7 +39,6 @@ function Painting(props) {
                     />
                 </div>
 
-                
                 <div className = "fullScreen" style = {{display : fullScreen}}>
                     <button className = "close-img" onClick = {() => setFullScreen("none")}>X</button>
                     <img className = "fullScreenImg"

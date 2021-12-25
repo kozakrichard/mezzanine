@@ -31,6 +31,9 @@
     z-index: 2;
 }
 
+.shuffler:hover {
+    cursor: pointer;
+}
 .header div{
     position: absolute;
     float: left;
