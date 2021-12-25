@@ -3,17 +3,48 @@ img {
     object-fit: cover;
 }
 
-/*
-.thumbnail:hover{
-    position: absolute;
-    display: block;
-    width: 40%;
-    z-index:999;
+.fullScreen {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    overflow: auto;
 }
-*/
+
+.fullScreenImg {
+    margin: auto;
+    margin-left: 15%;
+    display: block;
+    width: 50%;
+    max-width: 530px;
+
+}
+
+.close-img {
+    margin-right: 35%;
+}
+
+
+.thumbnail:hover{
+    cursor: pointer;
+}
+
 
 .painting-data{
     height:100%;
     width:100%;
     background-size: cover;
+}
+
+.caption {
+    color: white;
+    margin-left: 60%;
+    margin-top: -40%;
+    font-size: 16pt;
+    text-align: left;
 }
