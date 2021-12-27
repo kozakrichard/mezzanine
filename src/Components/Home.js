@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
 import { GrCircleInformation } from 'react-icons/gr';
-import loading from "../artwork/loading.gif" ;
 
 function Home() {
     const [num, setNum] = useState([]);
@@ -13,10 +12,11 @@ function Home() {
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
-    const [searching, setSearching] = useState(false);
-    const [loadingSymbol, setLoadingSymbol] = useState(false);
     const [showInfo, setShowInfo] = useState("none");
 
+
+    // randomizer fills an array with 32 different numbers depending on the size of max
+    // these numbers will represent which works of art to load onto the site
 
     const randomizer = (max) => {
         let numArr = [];
@@ -27,29 +27,24 @@ function Home() {
         }
         console.log(numArr);
         return numArr; 
-    //console.log(currWork.total + " total images found");
     }
 
     const handleInput = (event) => {
         setYourQuery(event.target.value);
     }
 
+    // Upon loading the site, make a call to get the Auguste Renoir obkject so that we have some data to display
+
     useEffect(() => {
-        console.log("emergency art running");
         async function fetchEmerg () {
-            console.log("fetching inside emerg, but before await")    
             let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste%20Renoir')
 
-            console.log("response coming after")
-            console.log(response.data)
-            console.log("setting emergency art to response from above")
+            //Auguste Renoir is our backup "emergency" art to show if the API request doesn't go through properly
+
             setEmergArt(response.data)
-            console.log("emergArt is:")
         }
-        console.log("fetching emerg before call");
+
         fetchEmerg();
-        console.log("fetching emerg after call");
-        //setLoading(false);
         
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
@@ -72,54 +67,38 @@ function Home() {
 
 
     useEffect(() => {
-        
-        setSearching(true);
-        console.log("searching is " + searching)
         // GET request using axios inside useEffect React hook
         async function gettingData () {
-            //console.log("getting data here");
             let response = await makeGetRequest('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=' + yourQuery)
-            console.log("yourQuery is:")
-            console.log(yourQuery);
-            console.log("artChecker is (before setArtChecker(response.data)): ")
-            console.log(artChecker)
             setArtChecker(response.data)  
-            console.log("response.data is :")
-            console.log(response.data)
-            console.log("artChecker is:")
-            console.log(artChecker)
-            console.log("response.data.total is: ")
-            console.log(response.data.total)
 
+            // artChecker makes sure if the API has been called yet upon loading into the site, orthat we received a response from the API
+            // if one of these cases is true, then we should display work from emergArt (Auguste Renoir) to avoid loading errors
             if (typeof artChecker === 'undefined' || response.data.total === 0)     
             {
                 setCurrWork(emergArt);
-                console.log("emergency here, changed currWork to emergency Art")
-                console.log(currWork)
+
             }
+
+            // otherwise the API has returned a new object, and we can update what the page can display to this new object
+
             else{
-                setCurrWork(response.data);                     //AM I AN IDIOT OR A BEAST
+                setCurrWork(response.data);
             }
             setLoading(false);
-            console.log("after setLoading to false");
             
         }
-        console.log("getting data after")
         gettingData();
-        console.log("searching is " + searching)
-        setSearching(false);
-        setLoadingSymbol(true);
       
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
     // dependency array has some variables, this useEffect will run every time one of these variables is updated
     }, [yourQuery, emergArt]);
+    
 
-    //    useEffect(() => {
+    // Show loading screen if there is some delay getting the data in currWork
+
     if (isLoading || typeof currWork === 'undefined') {
         return <div className = "Home">
             Loading...
-            {console.log("loading now, currWork is")}
-            {console.log(currWork)}
         </div>
     }
 
