@@ -1,5 +1,6 @@
 .header{
     position: fixed;
+    z-index: 4;
     top: 0;
     background-color: white;
     height: 7%;
@@ -13,6 +14,51 @@
     margin-left: 1.5%;
     text-align: left;
 }
+
+.info-btn {
+    position: absolute;
+    text-align: left;
+    background-color: transparent;
+    border: transparent;
+    margin-left: -44%;
+    margin-top: 1.4%;
+    font-size: 11pt;
+}
+
+.info-btn:hover {
+    cursor:pointer;
+}
+
+.information {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.9);
+    width: 55%;
+    height: 24%;
+    padding-top: 5%;
+    left: 22.5%;
+    top: 10%;
+    overflow: auto;
+    color: white;
+}
+
+.info-text {
+    margin-top: -5%;
+    font-size: 13pt;
+}
+
+.close-info{
+    position: absolute;
+    margin-top: -8.5%;
+    left: 1%;
+}
+
+.close-info:hover {
+    cursor:pointer;
+}
+
+
 
 .header form{
     position: absolute;
@@ -34,6 +80,7 @@
 .shuffler:hover {
     cursor: pointer;
 }
+
 .header div{
     position: absolute;
     float: left;
@@ -84,15 +131,3 @@
       max-width: 100%;
     }
   }
-
-/*
-.work-display1{
-    margin-left:10%;
-    margin-right:5%;
-}
-
-.work-display2{
-    margin-right:10%;
-    margin-left:5%;
-}
-*/
