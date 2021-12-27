@@ -3,6 +3,8 @@ import './Painting.css'
 import ArtGetter from "./ArtGetter.js"
 import pozzi from "../artwork/dr.pozzi_sargent.jpg"
 import clickAgain2 from "../artwork/clickAgain2.JPG"
+import {FaExpandAlt} from 'react-icons/fa';
+
 import axios from 'axios';
 
 
@@ -22,13 +24,9 @@ function Painting(props) {
     return (
         <div className = "artwork-display">
             <div className = "get-btn">
-                <button className = "expander" onClick = {() => setFullScreen("block")}>Expand</button>           
+                <button className = "expander" onClick = {() => setFullScreen("block")}><FaExpandAlt/></button>           
             </div>
             <div className = "painting-data">
-                {/*<p style = {{fontStyle: "italic"}}>{painting.title}</p>
-                <p>{painting.artistDisplayName}</p>
-                {console.log(props.num)}
-                {console.log(painting)}*/}
                 <div>
                     <img className ="art-now" 
                         src = {painting.primaryImage || clickAgain2} 
@@ -46,8 +44,8 @@ function Painting(props) {
                     alt = ""
                     />
                     <div className = "caption">
-                        <p>{painting.artistDisplayName}</p>
                         <p style = {{fontStyle : "italic"}}>{painting.title}</p>
+                        <p>{painting.artistDisplayName}</p>
                         <p>Made {painting.objectDate}</p>
                         <p>{painting.medium}</p>
                         <a style = {{color : "blue"}} href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work on the Met's website</a>
