@@ -15,7 +15,7 @@ function Home() {
     var [emergArt, setEmergArt] = useState();
     const [searching, setSearching] = useState(false);
     const [loadingSymbol, setLoadingSymbol] = useState(false);
-    const [showLoadingSymbol, setShowLoadingSymbol] = useState("never shuffled yet");
+    const [showInfo, setShowInfo] = useState("none");
 
 
     const randomizer = (max) => {
@@ -123,20 +123,14 @@ function Home() {
         </div>
     }
 
-    function showLoadingSign() {
-        if (loadingSymbol === true){
-            setShowLoadingSymbol("shuffling for you");
-        }
-        else {
-            setShowLoadingSymbol("not shuffling");
-        }
-    }
-
     return (
 
         <div>
             <div className= "header">
                 <h1>Mezzanine</h1>
+                <button className = "info-btn" onClick = {() => setShowInfo("block")}>
+                    <GrCircleInformation/>
+                </button>
                 <form className = "search">
                     <label >
                         <FaSearch/>
@@ -147,15 +141,29 @@ function Home() {
                         />
                     </label>
                 </form>
-            
-                <div>
-                    {/*<p>{showLoadingSymbol}</p>
-                    <img className = "loading-icon" src = {showLoadingSymbol} alt = {loading}/>*/}
-                </div>
+
                 <div className = "results">{currWork.total} Results</div>
             
                 <button className = "shuffler" onClick = {() => setNum(randomizer(currWork.total - 1))}>Shuffle</button>
             </div>
+
+            <div className = "information" style={{display: showInfo}}>
+                <button className = "close-info" onClick = {() => setShowInfo("none")}>X</button>
+                <div className = "info-text">
+                    <pre>
+                        Hello there! Welcome to Mezzanine!
+                        <br></br>
+                        Hit <button>Shuffle</button> at the top of the screen, 
+                        <br></br> then click on different works of art to change them.
+                        <br></br> Search by artist, medium, country, time period, 
+                        <br></br> or whatever else you can think of, and see what the Met has on display,
+                        <br></br> or hidden away!
+                        <br></br> Thanks for visiting, and enjoy discovering art from the best museum in the world.
+                    </pre>
+                </div>
+                
+            </div>
+
             <div className = "works-total">
                 <div className = "works-col">
                     <div className = "work-img">
@@ -262,7 +270,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            {/*console.log(num + " value on loading Painting.js")*/}
         </div>   
     );
 }

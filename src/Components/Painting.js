@@ -47,6 +47,7 @@ function Painting(props) {
                         <p style = {{fontStyle : "italic"}}>{painting.title}</p>
                         <p>{painting.artistDisplayName}</p>
                         <p>Made {painting.objectDate}</p>
+                        <p>{painting.culture}</p>
                         <p>{painting.medium}</p>
                         <a style = {{color : "blue"}} href = {painting.objectURL} target = "_blank" rel="noopener noreferrer">Open this work on the Met's website</a>
                     </div>
