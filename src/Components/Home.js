@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
 import { GrCircleInformation } from 'react-icons/gr';
+import loading from '../artwork/loading.gif';
 
 function Home() {
     const [num, setNum] = useState([]);
@@ -27,10 +28,6 @@ function Home() {
         }
         console.log(numArr);
         return numArr; 
-    }
-
-    const handleInput = (event) => {
-        setYourQuery(event.target.value);
     }
 
     // Upon loading the site, make a call to get the Auguste Renoir obkject so that we have some data to display
@@ -92,13 +89,44 @@ function Home() {
       
     // dependency array has some variables, this useEffect will run every time one of these variables is updated
     }, [yourQuery, emergArt]);
-    
+
+    const handleInput = (event) => {
+        setYourQuery(event.target.value);
+    }
+
+    const handleKeyPress = (event) => {
+        event.PreventDefault();
+        if (event.key === 'Enter') {
+            console.log("Enter pressed")
+            setNum(randomizer(currWork.total - 1))
+        }
+    }
+
+    //Creates 4 columns for the images to be stored in divs
+
+    const showWorkCols = () => {
+        const col = [];
+        for (var i = 0; i < 4; i++) {
+          col.push(<div className = "works-col" key={i}>{showWorkImg()}</div>);
+        }
+        return col;
+    };
+
+    //Creates the <Painting>s that are in each column as a row
+
+    const showWorkImg = () => {
+        const row = [];
+        for (var i = 0; i < 8; i++) {
+          row.push(<div className = "work-img" key={i}><Painting num = {currWork.objectIDs[num[i]]}/></div>);
+        }
+        return row;
+    };
 
     // Show loading screen if there is some delay getting the data in currWork
 
     if (isLoading || typeof currWork === 'undefined') {
         return <div className = "Home">
-            Loading...
+            <img src = {loading} alt = "Loading..."/>
         </div>
     }
 
@@ -110,13 +138,14 @@ function Home() {
                 <button className = "info-btn" onClick = {() => setShowInfo("block")}>
                     <GrCircleInformation/>
                 </button>
-                <form className = "search">
+                <form onSubmit = {handleKeyPress} className = "search">
                     <label >
                         <FaSearch/>
                         <input
                             type="text"
                             value={yourQuery}
                             onChange ={handleInput}
+                            //onKeyPress = {handleKeyPress}
                         />
                     </label>
                 </form>
@@ -142,6 +171,12 @@ function Home() {
                 </div>
                 
             </div>
+
+            <div className = "works-total">
+                {showWorkCols()}
+            </div>
+
+            {/*            
 
             <div className = "works-total">
                 <div className = "works-col">
@@ -248,7 +283,7 @@ function Home() {
                         <Painting num = {currWork.objectIDs[num[31]]}/>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </div>   
     );
 }
