@@ -1,9 +1,0 @@
-upon opening the application, a user is greeted with an explanation at the top of the screen
-the concept is an at home personalized or randomized gallery visit to a museum (the met for now)
-MVP GOALS- GET DONE SOON
--load in 3-5 images from the met, paintings with info underneath each
--scrolling over the image allows you to access more data about it
-and ability to enhance size of image as well
--press NEXT to get another collection of 3 images
--option to have the images be of a similar theme (flowers, color, year made, artist, country of origin)
-**examine met museum api for more info**
