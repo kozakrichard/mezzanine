@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Home.css'
 import { FaSearch } from 'react-icons/fa';
 import { GrCircleInformation } from 'react-icons/gr';
+import loading from '../artwork/loading.gif';
 
 function Home() {
     const [num, setNum] = useState([]);
@@ -27,10 +28,6 @@ function Home() {
         }
         console.log(numArr);
         return numArr; 
-    }
-
-    const handleInput = (event) => {
-        setYourQuery(event.target.value);
     }
 
     // Upon loading the site, make a call to get the Auguste Renoir obkject so that we have some data to display
@@ -92,13 +89,21 @@ function Home() {
       
     // dependency array has some variables, this useEffect will run every time one of these variables is updated
     }, [yourQuery, emergArt]);
-    
+
+    const handleInput = (event) => {
+        setYourQuery(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setNum(randomizer(currWork.total - 1));
+    }
 
     // Show loading screen if there is some delay getting the data in currWork
 
     if (isLoading || typeof currWork === 'undefined') {
         return <div className = "Home">
-            Loading...
+            <img style = {{marginTop: "10%", height: "30%", width: "30%"}}src = {loading} alt = "Loading..."/>
         </div>
     }
 
@@ -110,7 +115,7 @@ function Home() {
                 <button className = "info-btn" onClick = {() => setShowInfo("block")}>
                     <GrCircleInformation/>
                 </button>
-                <form className = "search">
+                <form onSubmit = {handleSubmit} className = "search">
                     <label >
                         <FaSearch/>
                         <input
