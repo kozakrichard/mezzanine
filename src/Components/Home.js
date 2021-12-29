@@ -102,31 +102,11 @@ function Home() {
         }
     }
 
-    //Creates 4 columns for the images to be stored in divs
-
-    const showWorkCols = () => {
-        const col = [];
-        for (var i = 0; i < 4; i++) {
-          col.push(<div className = "works-col" key={i}>{showWorkImg()}</div>);
-        }
-        return col;
-    };
-
-    //Creates the <Painting>s that are in each column as a row
-
-    const showWorkImg = () => {
-        const row = [];
-        for (var i = 0; i < 8; i++) {
-          row.push(<div className = "work-img" key={i}><Painting num = {currWork.objectIDs[num[i]]}/></div>);
-        }
-        return row;
-    };
-
     // Show loading screen if there is some delay getting the data in currWork
 
     if (isLoading || typeof currWork === 'undefined') {
         return <div className = "Home">
-            <img src = {loading} alt = "Loading..."/>
+            <img style = {{marginTop: "10%", height: "30%", width: "30%"}}src = {loading} alt = "Loading..."/>
         </div>
     }
 
@@ -138,7 +118,7 @@ function Home() {
                 <button className = "info-btn" onClick = {() => setShowInfo("block")}>
                     <GrCircleInformation/>
                 </button>
-                <form onSubmit = {handleKeyPress} className = "search">
+                <form className = "search">
                     <label >
                         <FaSearch/>
                         <input
@@ -171,12 +151,6 @@ function Home() {
                 </div>
                 
             </div>
-
-            <div className = "works-total">
-                {showWorkCols()}
-            </div>
-
-            {/*            
 
             <div className = "works-total">
                 <div className = "works-col">
@@ -283,7 +257,7 @@ function Home() {
                         <Painting num = {currWork.objectIDs[num[31]]}/>
                     </div>
                 </div>
-            </div>*/}
+            </div>
         </div>   
     );
 }
