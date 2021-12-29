@@ -94,12 +94,9 @@ function Home() {
         setYourQuery(event.target.value);
     }
 
-    const handleKeyPress = (event) => {
-        event.PreventDefault();
-        if (event.key === 'Enter') {
-            console.log("Enter pressed")
-            setNum(randomizer(currWork.total - 1))
-        }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setNum(randomizer(currWork.total - 1));
     }
 
     // Show loading screen if there is some delay getting the data in currWork
@@ -118,14 +115,13 @@ function Home() {
                 <button className = "info-btn" onClick = {() => setShowInfo("block")}>
                     <GrCircleInformation/>
                 </button>
-                <form className = "search">
+                <form onSubmit = {handleSubmit} className = "search">
                     <label >
                         <FaSearch/>
                         <input
                             type="text"
                             value={yourQuery}
                             onChange ={handleInput}
-                            //onKeyPress = {handleKeyPress}
                         />
                     </label>
                 </form>
