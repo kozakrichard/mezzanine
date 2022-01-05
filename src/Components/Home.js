@@ -30,7 +30,7 @@ function Home() {
         return numArr; 
     }
 
-    // Upon loading the site, make a call to get the Auguste Renoir obkject so that we have some data to display
+    // Upon loading the site, make a call to get the Auguste Renoir object so that we have some data to display
 
     useEffect(() => {
         async function fetchEmerg () {
@@ -38,7 +38,7 @@ function Home() {
 
             //Auguste Renoir is our backup "emergency" art to show if the API request doesn't go through properly
 
-            setEmergArt(response.data)
+            setEmergArt(response.data);
         }
 
         fetchEmerg();
@@ -69,11 +69,13 @@ function Home() {
             let response = await makeGetRequest('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=' + yourQuery)
             setArtChecker(response.data)  
 
-            // artChecker makes sure if the API has been called yet upon loading into the site, orthat we received a response from the API
+            // artChecker makes sure if the API has been called yet upon loading into the site, or that we received a response from the API
             // if one of these cases is true, then we should display work from emergArt (Auguste Renoir) to avoid loading errors
             if (typeof artChecker === 'undefined' || response.data.total === 0)     
             {
                 setCurrWork(emergArt);
+                
+                //setNum(randomizer(emergArt.total - 1))
 
             }
 
@@ -81,9 +83,11 @@ function Home() {
 
             else{
                 setCurrWork(response.data);
+                
             }
             setLoading(false);
-            
+            //setNum(randomizer(response.data.total - 1))
+            //console.log(response.data.total)
         }
         gettingData();
       
