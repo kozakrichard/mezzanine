@@ -13,16 +13,17 @@ function Painting(props) {
     const [data] = ArtGetter("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num);
     const [fullScreen, setFullScreen] = useState("none");
 
-    //Load the page initially with "Young Girl Bathing" to avoid null request errors
+    //Load the page initially with "VVG" to avoid null image errors
 
     useEffect(() => {
         // GET request using axios inside useEffect React hook
-        axios.get('https://collectionapi.metmuseum.org/public/collection/v1/objects/436532')
+        axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num)
             .then(response => setPainting(response.data));
     
     // empty dependency array means this effect will only run once
     }, []);
 
+    //https://collectionapi.metmuseum.org/public/collection/v1/objects/436532
 
     return (
         <div className = "artwork-display">

@@ -9,7 +9,7 @@ import loading from '../artwork/loading.gif';
 function Home() {
     const [num, setNum] = useState([]);
     var [currWork, setCurrWork] =useState()
-    const [yourQuery, setYourQuery] = useState("Auguste Renoir")
+    const [yourQuery, setYourQuery] = useState("Vincent Van Gogh")
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
@@ -30,15 +30,16 @@ function Home() {
         return numArr; 
     }
 
-    // Upon loading the site, make a call to get the Auguste Renoir object so that we have some data to display
+    // Upon loading the site, make a call to get the Vincent Van Gogh object so that we have some data to display
 
     useEffect(() => {
         async function fetchEmerg () {
-            let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Auguste%20Renoir')
+            let response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Vincent%20Van%20Gogh')
 
             //Auguste Renoir is our backup "emergency" art to show if the API request doesn't go through properly
 
             setEmergArt(response.data);
+            setNum(randomizer(response.data.total - 1));
         }
 
         fetchEmerg();
@@ -70,7 +71,7 @@ function Home() {
             setArtChecker(response.data)  
 
             // artChecker makes sure if the API has been called yet upon loading into the site, or that we received a response from the API
-            // if one of these cases is true, then we should display work from emergArt (Auguste Renoir) to avoid loading errors
+            // if one of these cases is true, then we should display work from emergArt (VVG) to avoid loading errors
             if (typeof artChecker === 'undefined' || response.data.total === 0)     
             {
                 setCurrWork(emergArt);
