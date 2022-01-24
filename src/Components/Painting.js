@@ -10,18 +10,20 @@ import axios from 'axios';
 
 function Painting(props) {
     var [painting, setPainting] = useState(pozzi);
-    const [data] = ArtGetter("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num)
+    const [data] = ArtGetter("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num);
     const [fullScreen, setFullScreen] = useState("none");
 
-    //Load the page initially with "Young Girl Bathing" to avoid null request errors
+    //Load the page initially with "VVG" to avoid null image errors
 
     useEffect(() => {
         // GET request using axios inside useEffect React hook
-        axios.get('https://collectionapi.metmuseum.org/public/collection/v1/objects/459110')
+        axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + props.num)
             .then(response => setPainting(response.data));
     
     // empty dependency array means this effect will only run once
     }, []);
+
+    //https://collectionapi.metmuseum.org/public/collection/v1/objects/436532
 
     return (
         <div className = "artwork-display">
@@ -32,7 +34,7 @@ function Painting(props) {
                 <div>
                     <img className ="art-now" 
                         src = {painting.primaryImage || clickAgain2} 
-                        onClick = {() => setPainting(data) }
+                        onClick = {() => setPainting(data)}
                         class="thumbnail" 
                         alt = "painting"
                         title = "Click to Change"

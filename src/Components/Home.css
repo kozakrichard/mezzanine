@@ -1,8 +1,13 @@
+:root{
+    --mainDark : rgb(36, 20, 53);
+    --mainLight : rgb(182, 169, 189);
+}
+
 .header{
     position: fixed;
     z-index: 4;
     top: 0;
-    background-color: white;
+    background-color: var(--mainDark);
     height: 7%;
     width: 100%;
 }
@@ -13,6 +18,7 @@
     margin-top: 0.25%;
     margin-left: 1.5%;
     text-align: left;
+    color: var(--mainLight);
 }
 
 .info-btn {
@@ -23,6 +29,7 @@
     margin-left: -44%;
     margin-top: 1.4%;
     font-size: 11pt;
+    color:var(--mainLight);
 }
 
 .info-btn:hover {
@@ -33,14 +40,14 @@
     display: none;
     position: fixed;
     z-index: 4;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(38, 19, 59,0.97);
     width: 55%;
     height: 24%;
     padding-top: 5%;
     left: 22.5%;
     top: 10%;
     overflow: auto;
-    color: white;
+    color: var(--mainLight);
 }
 
 .info-text {
@@ -52,12 +59,13 @@
     position: absolute;
     margin-top: -8.5%;
     left: 1%;
+    background-color: var(--mainLight);
+    color: var(--mainDark);
 }
 
 .close-info:hover {
     cursor:pointer;
 }
-
 
 
 .header form{
@@ -67,6 +75,13 @@
     z-index: 3;
     margin-top: 1%;
     margin-left: 25%;
+    color:var(--mainLight);
+}
+
+.header form input{
+    background-color: var(--mainDark);
+    color:var(--mainLight);
+    border-color:var(--mainLight);
 }
 
 .shuffler{
@@ -75,10 +90,17 @@
     margin-top: 1.15%;
     margin-left: -15%;
     z-index: 2;
+    background-color: var(--mainLight);
+    color:var(--mainDark);
+    border-color: var(--mainLight);
 }
 
 .shuffler:hover {
     cursor: pointer;
+}
+
+.results {
+    color: var(--mainLight);
 }
 
 .header div{
@@ -94,6 +116,7 @@
     margin-top: 3.5%;
     display: flex; 
     flex-wrap: wrap;
+    background-color: var(--mainDark);
 }
 
 .works-col{
