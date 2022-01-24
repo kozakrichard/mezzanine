@@ -7,8 +7,9 @@ img {
     position: absolute;
     margin-left: -12.2%;
     border: transparent;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(182, 169, 189,0.4);
     z-index: 3;
+    color: rgb(36, 20, 53);
 }
 
 .expander:hover {
@@ -19,7 +20,7 @@ img {
     display: none;
     position: fixed;
     z-index: 4;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(36, 20, 53,0.95);
     width: 100%;
     height: 100%;
     padding-top: 20px;
@@ -39,6 +40,9 @@ img {
 
 .close-img {
     margin-right: 35%;
+    color: rgb(36, 20, 53);
+    background-color: rgb(182, 169, 189);
+    border-color: rgb(182, 169, 189);
 }
 
 .close-img:hover {
@@ -60,8 +64,9 @@ img {
     position: absolute;
     padding-top: 10%;
     bottom: 50%;
-    color: white;
+    color: rgb(182, 169, 189);
     margin-left: 55%;
+    margin-right: 10%;
     margin-top: -25%;
     font-size: 16pt;
     text-align: left;
