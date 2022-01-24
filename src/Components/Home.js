@@ -13,7 +13,7 @@ function Home() {
     const [isLoading, setLoading] = useState(true);
     var [artChecker, setArtChecker] = useState();
     var [emergArt, setEmergArt] = useState();
-    const [showInfo, setShowInfo] = useState("none");
+    const [showInfo, setShowInfo] = useState("block");
 
 
     // randomizer fills an array with 32 different numbers depending on the size of max
@@ -146,7 +146,8 @@ function Home() {
                         <br></br> then click on different works of art to change them.
                         <br></br> Search by artist, medium, country, time period, 
                         <br></br> or whatever else you can think of, and see what the Met has on display,
-                        <br></br> or hidden away!
+                        <br></br> or hidden away! 
+                        <br></br>The more specific your search, the better results Mezzanine can give you.
                         <br></br> Thanks for visiting, and enjoy discovering art from the best museum in the world.
                     </pre>
                 </div>

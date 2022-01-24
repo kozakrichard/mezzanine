@@ -40,7 +40,7 @@
     display: none;
     position: fixed;
     z-index: 4;
-    background-color: rgba(38, 19, 59,0.95);
+    background-color: rgba(38, 19, 59,0.97);
     width: 55%;
     height: 24%;
     padding-top: 5%;
@@ -92,6 +92,7 @@
     z-index: 2;
     background-color: var(--mainLight);
     color:var(--mainDark);
+    border-color: var(--mainLight);
 }
 
 .shuffler:hover {
